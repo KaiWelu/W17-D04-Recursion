@@ -10,6 +10,7 @@ public class Main {
         int[] testArray = {1, 2, 3, 4, 5};
         printReverse(testArray, testArray.length - 1);
         System.out.println("Char count: " + countOccurrences("hello", 'l'));
+        System.out.println(removeDuplicates("hellllloooooo"));
     }
 
     public static int countDigits(int n) {
@@ -59,5 +60,16 @@ public class Main {
         }
 
         return count + countOccurrences(s.substring(1), c);
+    }
+
+    public static String removeDuplicates(String s) {
+
+        if(s.length() == 1) return s;
+
+        if(s.charAt(0) == s.charAt(1)) {
+            return removeDuplicates(s.substring(1));
+        }
+
+        return s.charAt(0) + removeDuplicates(s.substring(1));
     }
 }
