@@ -9,6 +9,7 @@ public class Main {
         System.out.println(sumOfDigits(-55555111));
         int[] testArray = {1, 2, 3, 4, 5};
         printReverse(testArray, testArray.length - 1);
+        System.out.println("Char count: " + countOccurrences("hello", 'l'));
     }
 
     public static int countDigits(int n) {
@@ -47,5 +48,16 @@ public class Main {
     public static void printReverse(int[] arr, int index) {
         System.out.println(arr[index]);
         if(index > 0) printReverse(arr, index -1);
+    }
+
+    public static int countOccurrences(String s, char c) {
+        if(s.isEmpty()) return 0;
+        int count = 0;
+
+        if(s.charAt(0) == c) {
+            count = 1;
+        }
+
+        return count + countOccurrences(s.substring(1), c);
     }
 }
