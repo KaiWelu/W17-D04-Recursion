@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(countDigits(123456789));
         System.out.println(isPalindrome("AnNa"));
+        System.out.println(sumOfDigits(-55555111));
     }
 
     public static int countDigits(int n) {
@@ -20,7 +21,7 @@ public class Main {
 
     public static boolean isPalindrome(String s) {
         s =  s.toLowerCase();
-        
+
         if(s.length() <= 1) {
             return true;
         }
@@ -30,5 +31,14 @@ public class Main {
         }
 
         return isPalindrome(s.substring(1, s.length()- 1));
+    }
+
+    public static int sumOfDigits(int n) {
+//        convert negative numbers
+        n = Math.abs(n);
+
+        if(n == 0) return 0;
+
+        return n % 10 + sumOfDigits(n / 10);
     }
 }
